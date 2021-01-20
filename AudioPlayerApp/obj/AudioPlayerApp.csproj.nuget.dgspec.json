@@ -34,7 +34,11 @@
         "frameworks": {
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\C# or C++ Projects\\AudioPlayerApp\\WaveFormRendererLib\\WaveFormRendererLib.csproj": {
+                "projectPath": "F:\\C# or C++ Projects\\AudioPlayerApp\\WaveFormRendererLib\\WaveFormRendererLib.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -47,6 +51,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "NAudio": {
+              "target": "Package",
+              "version": "[1.10.0, )"
+            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -72,6 +80,16 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "F:\\C# or C++ Projects\\AudioPlayerApp\\WaveFormRendererLib\\WaveFormRendererLib.csproj": {
+      "restore": {
+        "projectUniqueName": "F:\\C# or C++ Projects\\AudioPlayerApp\\WaveFormRendererLib\\WaveFormRendererLib.csproj",
+        "projectName": "WaveFormRendererLib",
+        "projectPath": "F:\\C# or C++ Projects\\AudioPlayerApp\\WaveFormRendererLib\\WaveFormRendererLib.csproj"
+      },
+      "frameworks": {
+        "net40": {}
       }
     }
   }

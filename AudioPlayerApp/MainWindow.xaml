@@ -31,14 +31,31 @@
             <WrapPanel Name="ImagesPanel">
                 <StackPanel Height="370" Width="850" Margin="30,10">
                     <Border x:Name="SpectrumBorder" BorderBrush="Black" BorderThickness="2" Height="300" Width="850">
-                        <Image x:Name="SpectrumImage" MaxHeight="{Binding ElementName=SpectrumBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=SpectrumBorder,Path=ActualWidth}"/>
+                        <Image x:Name="SpectrumImage" MaxHeight="{Binding ElementName=SpectrumBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=SpectrumBorder,Path=ActualWidth}" Stretch="Uniform"/>
                     </Border>
-                    <Button x:Name="LoadWavBtn" Width="60" Height="60" Margin="10,5,0,0" HorizontalAlignment="Left" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Click="LoadWavBtn_Click">
+                    <WrapPanel>
+                        <Button x:Name="LoadWavBtn" Width="60" Height="60" Margin="10,5,0,0" HorizontalAlignment="Left" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Click="LoadWavBtn_Click">
+                            <StackPanel>
+                                <Image Source="Graphics/loadFile.png" Width="40"></Image>
+                                <TextBlock Text="loadFile"></TextBlock>
+                            </StackPanel>
+                        </Button>
                         <StackPanel>
-                            <Image Source="Graphics/loadFile.png" Width="40"></Image>
-                            <TextBlock Text="loadFile"></TextBlock>
+                            <Slider x:Name="DurationSlider" Value="0" Width="500" Height="25" VerticalAlignment="Top" Margin="0,10,0,0" Thumb.DragCompleted="DurationSlider_DragCompleted"></Slider>
+                            <WrapPanel Height="30">
+                                <Button x:Name="StepBackBtn" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Background="Transparent" Click="StepBackBtn_Click">
+                                    <Image Source="/Graphics/backward.png"></Image>
+                                </Button>
+                                <Button x:Name="PlayPauseBtn" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Background="Transparent" Click="PlayPauseBtn_Click">
+                                    <Image x:Name="PlayPauseImg" Source="/Graphics/play.png"></Image>
+                                </Button>
+                                <Button x:Name="ForwardBtn" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Background="Transparent" Click="ForwardBtn_Click">
+                                    <Image Source="/Graphics/forward.png"></Image>
+                                </Button>
+                            </WrapPanel>
                         </StackPanel>
-                    </Button>
+                        <TextBlock x:Name="DurationText" Text="" Width="120" Height="30" TextAlignment="Center" FontSize="20"></TextBlock>
+                    </WrapPanel>
                 </StackPanel>
             </WrapPanel>
         </StackPanel>

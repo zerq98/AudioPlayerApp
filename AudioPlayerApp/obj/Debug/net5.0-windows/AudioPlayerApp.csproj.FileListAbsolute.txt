@@ -22,3 +22,7 @@ F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\Aud
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\ref\AudioPlayerApp.dll
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\AudioPlayerApp.pdb
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\AudioPlayerApp.genruntimeconfig.cache
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\NAudio.dll
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\WaveFormRendererLib.dll
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\WaveFormRendererLib.pdb
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\AudioPlayerApp.csproj.CopyComplete

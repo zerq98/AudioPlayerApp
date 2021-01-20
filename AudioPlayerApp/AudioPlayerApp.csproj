@@ -8,28 +8,41 @@
 
   <ItemGroup>
     <None Remove="close.png" />
+    <None Remove="Graphics\backward.png" />
     <None Remove="Graphics\close.png" />
+    <None Remove="Graphics\forward.png" />
     <None Remove="Graphics\loadFile.png" />
     <None Remove="Graphics\minimize.png" />
+    <None Remove="Graphics\pause.png" />
+    <None Remove="Graphics\play.png" />
     <None Remove="loadFile.png" />
     <None Remove="minimize.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="NAudio" Version="1.10.0" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WaveFormRendererLib\WaveFormRendererLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="close.png" />
+    <Resource Include="Graphics\backward.png" />
     <Resource Include="Graphics\close.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Graphics\forward.png" />
     <Resource Include="Graphics\loadFile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Graphics\minimize.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Graphics\pause.png" />
+    <Resource Include="Graphics\play.png" />
     <Resource Include="loadFile.png" />
     <Resource Include="minimize.png" />
   </ItemGroup>
