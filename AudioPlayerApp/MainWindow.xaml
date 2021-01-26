@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AudioPlayerApp"
+        xmlns:chr="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Name="MainScreen" Height="900"
         Width="1440" MinHeight="600"
-        MinWidth="800" WindowStyle="None">
+        MinWidth="800" WindowStyle="None"
+        SizeChanged="MainScreen_SizeChanged">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30"/>
     </WindowChrome.WindowChrome>
@@ -57,6 +58,14 @@
                         <TextBlock x:Name="DurationText" Text="" Width="120" Height="30" TextAlignment="Center" FontSize="20"></TextBlock>
                     </WrapPanel>
                 </StackPanel>
+            </WrapPanel>
+            <WrapPanel Name="ChartsPanel" Height="300" Width="{Binding ElementName=MainScreen,Path=ActualWidth}">
+                <chr:CartesianChart BorderThickness="1" BorderBrush="Black" Name="VolumeChart" Height="{Binding ElementName=ChartsPanel,Path=ActualHeight}">
+                    <chr:CartesianChart.Series>
+                        <chr:LineSeries x:Name="LeftChannel" Fill="#26FF0000" ToolTip="LeftChannel"/>
+                        <chr:LineSeries x:Name="RightChannel" Fill="#260000FF" ToolTip="RightChannel"/>
+                    </chr:CartesianChart.Series>
+                </chr:CartesianChart>
             </WrapPanel>
         </StackPanel>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using AudioPlayerApp.AudioFeatures;
+using LiveCharts;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace AudioPlayerApp
         DispatcherTimer timer;
         private string maxTime;
         private bool isPlaying=false;
+        private AudioData audioData;
 
         public MainWindow()
         {
@@ -42,6 +44,7 @@ namespace AudioPlayerApp
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
+            VolumeChart.Width = ChartsPanel.ActualWidth / 2;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -70,23 +73,41 @@ namespace AudioPlayerApp
             if (fileDialog.ShowDialog() == true)
             {
                 var name = fileDialog.FileName;
+                audioData = new AudioData(name);
+                InitializeCharts();
+                LoadWave(name);
                 player.Open(new Uri(name));
-                Duration duration = player.NaturalDuration;
-                if (duration.HasTimeSpan)
-                {
-                    LoadWave(name);
-                    DurationSlider.Maximum = duration.TimeSpan.TotalSeconds;
-                    maxTime = duration.TimeSpan.ToString(@"mm\:ss");
-                    timer.Start();
-                    player.Play();
-                    isPlaying = true;
-                    PlayPauseImg.Source = new BitmapImage(new Uri("pack://application:,,,/Graphics/pause.png"));
-                }
-                else
-                {
-                    MessageBox.Show("There was an error during song loading !!");
-                }
+                player.MediaOpened += Player_MediaOpened;
+                timer.Start();
+                player.Play();
+                player.MediaEnded += Player_MediaEnded;
+                isPlaying = true;
             }
+        }
+
+        private void Player_MediaOpened(object sender, EventArgs e)
+        {
+            Duration duration = player.NaturalDuration;
+            if (duration.HasTimeSpan)
+            {
+                DurationSlider.Maximum = duration.TimeSpan.TotalSeconds;
+                maxTime = duration.TimeSpan.ToString(@"mm\:ss");
+                PlayPauseImg.Source = new BitmapImage(new Uri("pack://application:,,,/Graphics/pause.png"));
+                player.MediaOpened -= Player_MediaOpened;
+            }
+            else
+            {
+                MessageBox.Show("There was an error during song loading !!");
+                player.Close();
+            }
+        }
+
+        private void Player_MediaEnded(object sender, EventArgs e)
+        {
+            isPlaying = false;
+            PlayPauseImg.Source = new BitmapImage(new Uri("pack://application:,,,/Graphics/play.png"));
+            player.Close();
+            timer.Stop();
         }
 
         private void DurationSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
@@ -130,6 +151,18 @@ namespace AudioPlayerApp
             {
                 player.Position += TimeSpan.FromSeconds(10);
             }
+        }
+
+        private void MainScreen_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            VolumeChart.Width = ChartsPanel.Width / 2;
+        }
+
+        private void InitializeCharts()
+        {
+            var result = audioData.GetAverageVolume();
+
+            LeftChannel.Values = new ChartValues<double>(result);
         }
     }
 }

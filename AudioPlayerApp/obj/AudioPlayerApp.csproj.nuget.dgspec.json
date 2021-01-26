@@ -51,6 +51,18 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "KaitaiStruct.Runtime.CSharp": {
+              "target": "Package",
+              "version": "[0.9.0, )"
+            },
+            "LiveCharts": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
+            "LiveCharts.Wpf": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
             "NAudio": {
               "target": "Package",
               "version": "[1.10.0, )"

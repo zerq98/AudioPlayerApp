@@ -26,3 +26,6 @@ F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\NAu
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\WaveFormRendererLib.dll
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\WaveFormRendererLib.pdb
 F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\obj\Debug\net5.0-windows\AudioPlayerApp.csproj.CopyComplete
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\LiveCharts.dll
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
+F:\C# or C++ Projects\AudioPlayerApp\AudioPlayerApp\bin\Debug\net5.0-windows\Kaitai.Struct.Runtime.dll
